@@ -1,89 +1,553 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="株式会社Pay it Forward｜食を通じて、日本のイケてる未来を創る。マグロ居酒屋を中心に、人と食の幸せの選択肢を広げ、飲食業界のニュースタンダードを創ります。" />
+  <meta property="og:title" content="株式会社Pay it Forward｜食を通じて、日本のイケてる未来を創る。" />
+  <meta property="og:description" content="人と食の幸せの選択肢を広げ、飲食業界のニュースタンダードを創る。" />
+  <title>株式会社Pay it Forward｜食を通じて、日本のイケてる未来を創る。</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Bebas+Neue&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/12.13.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.13.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/12.13.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/12.13.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/12.13.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/12.13.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/12.13.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/12.13.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/12.13.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/12.13.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+  <!-- ローディング -->
+  <div class="loader" id="loader">
+    <div class="loader__inner">
+      <div class="loader__logo">Pay it Forward</div>
+      <div class="loader__bar"><span></span></div>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+  </div>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+  <!-- ヘッダー -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="#home" class="header__logo">
+        <span class="header__logo-en">Pay it Forward</span>
+        <span class="header__logo-jp">株式会社 ペイイットフォワード</span>
+      </a>
+      <nav class="nav" id="nav">
+        <ul class="nav__list">
+          <li><a href="#philosophy" class="nav__link"><span class="nav__num">01</span>Philosophy</a></li>
+          <li><a href="#business" class="nav__link"><span class="nav__num">02</span>Business</a></li>
+          <li><a href="#brand" class="nav__link"><span class="nav__num">03</span>Brand</a></li>
+          <li><a href="recruit.html" class="nav__link"><span class="nav__num">04</span>Recruit</a></li>
+          <li><a href="#company" class="nav__link"><span class="nav__num">05</span>Company</a></li>
+          <li><a href="#contact" class="nav__link nav__link--cta"><span class="nav__num">06</span>Contact</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+  <!-- ヒーロー（フルブリードスライドショー） -->
+  <section class="hero" id="home">
+
+    <!-- 背景スライダー -->
+    <div class="hero-slider" aria-hidden="true">
+      <div class="hero-slide is-active"
+           style="background-image:url('https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1800&q=85');"></div>
+      <div class="hero-slide"
+           style="background-image:url('https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=1800&q=85');"></div>
+      <div class="hero-slide"
+           style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1800&q=85');"></div>
+      <div class="hero-slide"
+           style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=85');"></div>
+      <div class="hero-slide"
+           style="background-image:url('https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=1800&q=85');"></div>
+    </div>
+
+    <!-- カラーオーバーレイ -->
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <!-- テキスト -->
+    <div class="hero__inner">
+      <p class="hero__sub">FOR THE FUTURE OF JAPANESE FOOD CULTURE</p>
+      <h1 class="hero__title">
+        <span class="hero__line"><em>食</em>を通じて、</span>
+        <span class="hero__line">日本の<em>イケてる未来</em>を</span>
+        <span class="hero__line">創る。</span>
+      </h1>
+      <p class="hero__lead">
+        人と食の幸せの選択肢を広げ、<br>
+        飲食業界のニュースタンダードを創る。
+      </p>
+      <div class="hero__cta">
+        <a href="#philosophy" class="btn btn--primary">私たちについて<span>→</span></a>
+        <a href="recruit.html" class="btn btn--ghost">採用情報を見る<span>→</span></a>
+      </div>
+    </div>
+
+    <!-- スライドインジケーター -->
+    <div class="hero-dots" role="tablist" aria-label="ヒーロースライド">
+      <button class="hero-dot is-active" type="button" role="tab" aria-label="スライド 1" data-slide="0"></button>
+      <button class="hero-dot" type="button" role="tab" aria-label="スライド 2" data-slide="1"></button>
+      <button class="hero-dot" type="button" role="tab" aria-label="スライド 3" data-slide="2"></button>
+      <button class="hero-dot" type="button" role="tab" aria-label="スライド 4" data-slide="3"></button>
+      <button class="hero-dot" type="button" role="tab" aria-label="スライド 5" data-slide="4"></button>
+    </div>
+
+    <!-- 左右コントロール -->
+    <button class="hero-arrow hero-arrow--prev" type="button" aria-label="前のスライドへ">‹</button>
+    <button class="hero-arrow hero-arrow--next" type="button" aria-label="次のスライドへ">›</button>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <span>SCROLL</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- About / Intro -->
+  <section class="intro section">
+    <div class="intro__inner inner">
+      <div class="intro__media">
+        <div class="intro__photo intro__photo--1"
+             style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80');"
+             aria-label="居酒屋カウンター"></div>
+        <div class="intro__photo intro__photo--2"
+             style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80');"
+             aria-label="和食レストラン"></div>
+      </div>
+      <div class="intro__body">
+        <div class="intro__copy">
+          <p class="section__num">— ABOUT US</p>
+          <h2 class="intro__title">
+            飲食の<em>「当たり前」</em>を、<br>
+            ぜんぶ塗り替える。
+          </h2>
+        </div>
+        <div class="intro__text">
+          <p>
+            私たち <strong>Pay it Forward</strong> は、サスティナブルなマグロ居酒屋を中心に、
+            魚卸との協業、マグロ焼肉による魚食文化の復興、そして業界高水準給与の実現による労務改革に取り組む、
+            飲食ベンチャーカンパニーです。
+          </p>
+          <p>
+            飲食業で得た多面的な経験を活かし、業界へ恩返しをすること。
+            働く人、食べる人、関わるすべての人がもっと幸せになる飲食の在り方を、
+            私たちは本気で創りにいきます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Movie / Philosophy Video -->
+  <section class="movie section section--cream" id="movie">
+    <div class="inner">
+      <header class="section__head section__head--center">
+        <p class="section__num">— PHILOSOPHY MOVIE</p>
+        <h2 class="section__title">
+          <span class="section__title-en">Our Movie</span>
+          <span class="section__title-jp">私たちの想いを、動画で。</span>
+        </h2>
+        <p class="section__desc">
+          言葉だけでは伝えきれない、私たちが大切にしている考え方と未来への想い。<br>
+          ぜひ動画でご覧ください。
+        </p>
+      </header>
+
+      <div class="movie__wrap">
+        <div class="movie__frame">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/_uN5xWZHak0?rel=0&modestbranding=1"
+            title="株式会社Pay it Forward 理念動画"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="philosophy section section--dark" id="philosophy">
+    <div class="inner">
+      <header class="section__head">
+        <p class="section__num">— 01</p>
+        <h2 class="section__title">
+          <span class="section__title-en">Philosophy</span>
+          <span class="section__title-jp">経営理念</span>
+        </h2>
+        <p class="section__desc">私たちが何者で、どこへ向かうのか。すべての判断の起点となる4つの言葉。</p>
+      </header>
+
+      <div class="philosophy__grid">
+        <article class="phil-card" data-color="red">
+          <p class="phil-card__num">01</p>
+          <h3 class="phil-card__en">PURPOSE</h3>
+          <p class="phil-card__jp">存在意義</p>
+          <p class="phil-card__copy">食を通じて、<br>日本のイケてる未来を創る。</p>
+        </article>
+
+        <article class="phil-card" data-color="gold">
+          <p class="phil-card__num">02</p>
+          <h3 class="phil-card__en">MISSION</h3>
+          <p class="phil-card__jp">使命</p>
+          <p class="phil-card__copy">人と食の幸せの選択肢を広げ、<br>飲食業界のニュースタンダードを創る。</p>
+        </article>
+
+        <article class="phil-card" data-color="cream">
+          <p class="phil-card__num">03</p>
+          <h3 class="phil-card__en">VISION</h3>
+          <p class="phil-card__jp">目指す姿</p>
+          <p class="phil-card__copy">2040年までに国内外に<br>150店舗を展開し、<br>飲食版ユニクロになる。</p>
+        </article>
+
+        <article class="phil-card" data-color="dark">
+          <p class="phil-card__num">04</p>
+          <h3 class="phil-card__en">VALUE</h3>
+          <p class="phil-card__jp">価値観</p>
+          <ul class="phil-card__list">
+            <li>Giverであれ</li>
+            <li>メジャーリーガーであれ</li>
+            <li>ドリーマーであれ</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business -->
+  <section class="business section" id="business">
+    <div class="inner">
+      <header class="section__head">
+        <p class="section__num">— 02</p>
+        <h2 class="section__title">
+          <span class="section__title-en">Business</span>
+          <span class="section__title-jp">事業内容</span>
+        </h2>
+        <p class="section__desc">マグロを軸にした「食」の挑戦で、飲食業界のニュースタンダードを創ります。</p>
+      </header>
+
+      <div class="biz__list">
+        <article class="biz">
+          <div class="biz__num">01</div>
+          <div class="biz__photo"
+               style="background-image:url('https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=600&q=80');"
+               aria-label="マグロ寿司"></div>
+          <div class="biz__body">
+            <h3 class="biz__title">サスティナブルな<br>マグロ居酒屋</h3>
+            <p class="biz__text">
+              マグロを余すことなく使い切る、サスティナブルな居酒屋業態。
+              旨さも、価格も、体験も、すべてニュースタンダードに。
+            </p>
+          </div>
+          <div class="biz__tag">MAGURO IZAKAYA</div>
+        </article>
+
+        <article class="biz">
+          <div class="biz__num">02</div>
+          <div class="biz__photo"
+               style="background-image:url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80');"
+               aria-label="魚市場"></div>
+          <div class="biz__body">
+            <h3 class="biz__title">魚卸との協業による<br>魚屋プロデュース</h3>
+            <p class="biz__text">
+              魚卸とタッグを組み、流通・仕入れから魚屋業態までを一気通貫でプロデュース。
+              鮮度と価格の両立を実現します。
+            </p>
+          </div>
+          <div class="biz__tag">FISH MARKET</div>
+        </article>
+
+        <article class="biz">
+          <div class="biz__num">03</div>
+          <div class="biz__photo"
+               style="background-image:url('https://images.unsplash.com/photo-1535007813616-79dc02ba4021?auto=format&fit=crop&w=600&q=80');"
+               aria-label="マグロ焼肉"></div>
+          <div class="biz__body">
+            <h3 class="biz__title">マグロ焼肉で<br>魚食文化の復興</h3>
+            <p class="biz__text">
+              焼肉という体験で、若い世代にマグロの魅力を届ける。
+              日本人が魚を食べなくなった時代に、もう一度「魚って旨い」を取り戻します。
+            </p>
+          </div>
+          <div class="biz__tag">MAGURO YAKINIKU</div>
+        </article>
+
+        <article class="biz">
+          <div class="biz__num">04</div>
+          <div class="biz__photo"
+               style="background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=600&q=80');"
+               aria-label="厨房・チーム"></div>
+          <div class="biz__body">
+            <h3 class="biz__title">業界高水準給与による<br>労務改革</h3>
+            <p class="biz__text">
+              フードロス削減・利益率向上を徹底することで、業界高水準の給与を実現。
+              「飲食で働く」をかっこいい選択肢に変えていきます。
+            </p>
+          </div>
+          <div class="biz__tag">LABOR REFORM</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand -->
+  <section class="brand section section--cream" id="brand">
+    <div class="inner">
+      <header class="section__head">
+        <p class="section__num">— 03</p>
+        <h2 class="section__title">
+          <span class="section__title-en">Brand</span>
+          <span class="section__title-jp">運営店舗</span>
+        </h2>
+        <p class="section__desc">マグロ × 居酒屋。"旨い・安い・楽しい"のニュースタンダードを各地で。</p>
+      </header>
+
+      <div class="brand__grid">
+        <article class="shop">
+          <div class="shop__img shop__img--1"
+               style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80');">
+            <span class="shop__badge">FLAGSHIP</span>
+          </div>
+          <div class="shop__body">
+            <h3 class="shop__name">マグロと炉端 成る</h3>
+            <p class="shop__copy">炉端の香りと、最高のマグロ。<br>大人の隠れ家マグロ居酒屋。</p>
+            <dl class="shop__meta">
+              <dt>業態</dt><dd>マグロ居酒屋 / 炉端焼き</dd>
+            </dl>
+          </div>
+        </article>
+
+        <article class="shop">
+          <div class="shop__img shop__img--2"
+               style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80');">
+            <span class="shop__badge">STANDARD</span>
+          </div>
+          <div class="shop__body">
+            <h3 class="shop__name">マグロスタンダード<br><small>門前仲町店</small></h3>
+            <p class="shop__copy">マグロの新基準を、下町の名所で。<br>毎日通えるご褒美居酒屋。</p>
+            <dl class="shop__meta">
+              <dt>住所</dt><dd>東京都江東区 門前仲町</dd>
+            </dl>
+          </div>
+        </article>
+
+        <article class="shop">
+          <div class="shop__img shop__img--3"
+               style="background-image:url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=900&q=80');">
+            <span class="shop__badge">STANDARD</span>
+          </div>
+          <div class="shop__body">
+            <h3 class="shop__name">マグロスタンダード<br><small>錦糸町店</small></h3>
+            <p class="shop__copy">仕事終わりに、ふらっと一杯。<br>マグロ尽くしの夜を、錦糸町で。</p>
+            <dl class="shop__meta">
+              <dt>住所</dt><dd>東京都墨田区 錦糸町</dd>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery section" id="gallery">
+    <div class="inner">
+      <header class="section__head">
+        <p class="section__num">— GALLERY</p>
+        <h2 class="section__title">
+          <span class="section__title-en">Atmosphere</span>
+          <span class="section__title-jp">店舗の空気感</span>
+        </h2>
+        <p class="section__desc">Pay it Forward の店舗で過ごす、特別な時間をご紹介します。</p>
+      </header>
+
+      <div class="gallery__grid">
+        <figure class="gal gal--tall"  style="background-image:url('https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=900&q=80');"  aria-label="マグロサシミ"></figure>
+        <figure class="gal"            style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80');"  aria-label="バーカウンター"></figure>
+        <figure class="gal"            style="background-image:url('https://images.unsplash.com/photo-1503764654157-72d979d9af2f?auto=format&fit=crop&w=900&q=80');"  aria-label="レストラン内観"></figure>
+        <figure class="gal gal--wide"  style="background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=80');" aria-label="厨房"></figure>
+        <figure class="gal"            style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80');"  aria-label="寿司職人"></figure>
+        <figure class="gal"            style="background-image:url('https://images.unsplash.com/photo-1611143669185-af224c5e3252?auto=format&fit=crop&w=900&q=80');"  aria-label="寿司"></figure>
+    </div>
+  </section>
+
+  <!-- Numbers -->
+  <section class="numbers section">
+    <div class="inner">
+      <header class="section__head section__head--center">
+        <p class="section__num">— BY THE NUMBERS</p>
+        <h2 class="section__title">
+          <span class="section__title-en">Pay it Forward in Numbers</span>
+        </h2>
+      </header>
+
+      <div class="numbers__grid">
+        <div class="num-card">
+          <p class="num-card__value"><span data-count="2040">2040</span></p>
+          <p class="num-card__unit">年</p>
+          <p class="num-card__label">までに目指すVISION</p>
+        </div>
+        <div class="num-card">
+          <p class="num-card__value"><span data-count="150">0</span><em>+</em></p>
+          <p class="num-card__unit">店舗</p>
+          <p class="num-card__label">国内外への展開目標</p>
+        </div>
+        <div class="num-card">
+          <p class="num-card__value"><span data-count="100">0</span><em>%</em></p>
+          <p class="num-card__unit">GIVER</p>
+          <p class="num-card__label">圧倒的GIVER集団</p>
+        </div>
+        <div class="num-card">
+          <p class="num-card__value"><span data-count="3">0</span></p>
+          <p class="num-card__unit">VALUES</p>
+          <p class="num-card__label">Giver / Major / Dreamer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recruit -->
+  <section class="recruit section section--accent" id="recruit">
+    <div class="inner">
+      <header class="section__head">
+        <p class="section__num">— 04</p>
+        <h2 class="section__title">
+          <span class="section__title-en">Recruit</span>
+          <span class="section__title-jp">採用情報</span>
+        </h2>
+      </header>
+
+      <div class="recruit__hero">
+        <div class="recruit__copy">
+          <h3 class="recruit__catch">
+            <em>圧倒的GIVER</em>を、<br>
+            募集中。
+          </h3>
+          <p class="recruit__lead">
+            飲食業界を、もっとかっこよく。<br>
+            働く人がいちばん輝く会社を、一緒に創りませんか。
+          </p>
+        </div>
+        <div class="recruit__photo"
+             style="background-image:url('https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=900&q=80');"
+             aria-label="チームの様子"></div>
+      </div>
+
+      <div class="recruit__cards">
+        <a href="recruit.html#salary" class="rec-card">
+          <p class="rec-card__num">01</p>
+          <h4 class="rec-card__title">給与制度</h4>
+          <p class="rec-card__text">2026年4月実施の新給与制度。10段階の等級で、最大月収67.5万円まで明確なステップアップ。</p>
+          <span class="rec-card__arrow">→</span>
+        </a>
+        <a href="recruit.html#requirements" class="rec-card">
+          <p class="rec-card__num">02</p>
+          <h4 class="rec-card__title">募集要項</h4>
+          <p class="rec-card__text">雇用形態・勤務地・福利厚生など、応募前に知っておきたい情報をすべてまとめています。</p>
+          <span class="rec-card__arrow">→</span>
+        </a>
+        <a href="recruit.html#values" class="rec-card">
+          <p class="rec-card__num">03</p>
+          <h4 class="rec-card__title">求める人物像</h4>
+          <p class="rec-card__text">学歴・経歴ではなく、"人柄"と"熱量"を重視。PIF流イケてる人の三原則をご紹介します。</p>
+          <span class="rec-card__arrow">→</span>
+        </a>
+      </div>
+
+      <div class="recruit__more">
+        <a href="recruit.html" class="btn btn--primary btn--lg">採用情報をすべて見る<span>→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company -->
+  <section class="company section section--dark" id="company">
+    <div class="inner">
+      <header class="section__head">
+        <p class="section__num">— 05</p>
+        <h2 class="section__title">
+          <span class="section__title-en">Company</span>
+          <span class="section__title-jp">会社概要</span>
+        </h2>
+      </header>
+
+      <div class="company__inner">
+        <dl class="company__list">
+          <div class="company__row">
+            <dt>会社名</dt>
+            <dd>株式会社 Pay it Forward</dd>
+          </div>
+          <div class="company__row">
+            <dt>事業内容</dt>
+            <dd>飲食店の運営（マグロ居酒屋・マグロ焼肉）／魚屋プロデュース／飲食コンサルティング</dd>
+          </div>
+          <div class="company__row">
+            <dt>代表者</dt>
+            <dd>代表取締役</dd>
+          </div>
+          <div class="company__row">
+            <dt>所在地</dt>
+            <dd>東京都</dd>
+          </div>
+          <div class="company__row">
+            <dt>運営店舗</dt>
+            <dd>マグロと炉端 成る／マグロスタンダード 門前仲町店／マグロスタンダード 錦糸町店</dd>
+          </div>
+          <div class="company__row">
+            <dt>WEB</dt>
+            <dd><a href="https://pay-it-forward-corporate.com/" target="_blank" rel="noopener">pay-it-forward-corporate.com</a></dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact section" id="contact">
+    <div class="inner">
+      <div class="contact__inner">
+        <p class="section__num">— 06 CONTACT</p>
+        <h2 class="contact__title">
+          一緒に、<br>
+          イケてる未来を<br>
+          創りませんか。
+        </h2>
+        <p class="contact__lead">
+          採用・取材・出店相談・お取引のご相談など、お気軽にお問い合わせください。
+        </p>
+        <div class="contact__btns">
+          <a href="mailto:info@pay-it-forward-corporate.com" class="btn btn--primary btn--lg">お問い合わせフォーム<span>→</span></a>
+          <a href="recruit.html" class="btn btn--ghost btn--lg">採用情報を見る<span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner inner">
+      <div class="footer__brand">
+        <p class="footer__logo">Pay it Forward</p>
+        <p class="footer__tag">食を通じて、日本のイケてる未来を創る。</p>
+      </div>
+      <nav class="footer__nav">
+        <ul>
+          <li><a href="#philosophy">Philosophy</a></li>
+          <li><a href="#business">Business</a></li>
+          <li><a href="#brand">Brand</a></li>
+          <li><a href="recruit.html">Recruit</a></li>
+          <li><a href="#company">Company</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="footer__bottom">
+        <p>&copy; <span id="year"></span> Pay it Forward, Inc. All rights reserved.</p>
+        <p class="footer__credit">Designed with ★ for the future of Japanese food.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#home" class="pagetop" id="pagetop" aria-label="ページトップへ戻る">↑</a>
+
+  <script src="js/main.js"></script>
+</body>
 </html>
