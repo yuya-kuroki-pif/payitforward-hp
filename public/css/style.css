@@ -1913,8 +1913,320 @@ button { font: inherit; cursor: pointer; border: 0; background: transparent; col
 }
 .apply__contact a:hover { color: var(--c-white); border-color: var(--c-white); }
 
+/* ---------- Recruit: About us (課題提示) ---------- */
+.rec-about__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+.rec-about__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--c-white);
+  border: 1px solid var(--c-line);
+  border-radius: 12px;
+  padding: 18px 22px;
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+}
+.rec-about__item::before {
+  content: "?";
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--c-sky-light);
+  color: var(--c-blue);
+  font-family: var(--font-en);
+  font-size: 18px;
+}
+.rec-about__solve {
+  text-align: center;
+  max-width: 720px;
+  margin: clamp(40px, 6vw, 64px) auto 0;
+}
+.rec-about__solve-lead {
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 900;
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+.rec-about__solve-lead em {
+  font-style: normal;
+  color: var(--c-blue);
+}
+.rec-about__solve-text {
+  font-size: 15px;
+  line-height: 2;
+  color: var(--c-muted);
+  margin: 0 0 32px;
+}
+
+/* ---------- Recruit: Numbers (数字で見る) ---------- */
+.numbers__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.num-card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 18px;
+  padding: clamp(28px, 3vw, 40px) clamp(20px, 2.4vw, 32px);
+  text-align: center;
+  transition: transform .3s ease, border-color .3s ease;
+}
+.num-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--c-sky);
+}
+.num-card__label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,.7);
+  margin: 0 0 10px;
+}
+.num-card__value {
+  font-family: var(--font-en);
+  font-size: clamp(52px, 7vw, 76px);
+  line-height: 1;
+  color: var(--c-sky);
+  margin: 0;
+}
+.num-card__unit {
+  font-family: var(--font-jp);
+  font-size: clamp(16px, 1.6vw, 20px);
+  font-weight: 700;
+  color: var(--c-white);
+  margin-left: 6px;
+}
+.num-card__note {
+  font-size: 13px;
+  color: rgba(255,255,255,.65);
+  margin: 12px 0 0;
+}
+.rec-numbers__note {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,.5);
+  margin: clamp(32px, 4vw, 48px) 0 0;
+}
+
+/* 円グラフ */
+.donuts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: clamp(48px, 6vw, 72px);
+}
+.donut-card { text-align: center; }
+.donut {
+  position: relative;
+  width: clamp(150px, 18vw, 190px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin: 0 auto 18px;
+  background: conic-gradient(var(--c-sky) calc(var(--p) * 1%), rgba(255,255,255,.12) 0);
+  display: grid;
+  place-items: center;
+}
+.donut::before {
+  content: "";
+  position: absolute;
+  inset: 16px;
+  border-radius: 50%;
+  background: var(--c-blue-deep);
+}
+.donut__num {
+  position: relative;
+  font-family: var(--font-en);
+  font-size: clamp(40px, 5.5vw, 58px);
+  line-height: 1;
+  color: var(--c-white);
+}
+.donut__num small {
+  font-family: var(--font-jp);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--c-sky);
+  margin-left: 2px;
+}
+.donut-card__label {
+  font-size: 15px;
+  font-weight: 900;
+  color: var(--c-white);
+  margin: 0 0 6px;
+}
+.donut-card__note {
+  font-size: 13px;
+  color: rgba(255,255,255,.65);
+  margin: 0;
+}
+
+/* 棒グラフ：等級別 月給ステップ */
+.paybar-wrap {
+  margin-top: clamp(56px, 7vw, 88px);
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 18px;
+  padding: clamp(28px, 4vw, 48px);
+}
+.paybar-wrap__title {
+  text-align: center;
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 900;
+  color: var(--c-white);
+  margin: 0 0 clamp(28px, 4vw, 40px);
+}
+.paybar {
+  display: flex;
+  align-items: flex-end;
+  gap: clamp(6px, 1.2vw, 16px);
+  height: 280px;
+}
+.paybar__col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  gap: 8px;
+}
+.paybar__val {
+  font-family: var(--font-en);
+  font-size: clamp(12px, 1.4vw, 16px);
+  color: var(--c-sky);
+  white-space: nowrap;
+}
+.paybar__fill {
+  width: 100%;
+  max-width: 56px;
+  height: calc(var(--h) * 1%);
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(180deg, var(--c-sky), rgba(132,213,255,.25));
+  transition: filter .3s ease;
+}
+.paybar__col--max .paybar__fill {
+  background: linear-gradient(180deg, var(--c-white), var(--c-sky));
+}
+.paybar__col:hover .paybar__fill { filter: brightness(1.15); }
+.paybar__grade {
+  font-family: var(--font-en);
+  font-size: 16px;
+  color: rgba(255,255,255,.6);
+}
+.paybar__axis {
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255,255,255,.6);
+  margin: 20px 0 0;
+}
+
+/* ---------- Recruit: Work (職種紹介) ---------- */
+.work__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.work-card {
+  background: var(--c-white);
+  border: 1px solid var(--c-line);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.work-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+.work-card__media {
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center;
+}
+.work-card__body { padding: clamp(24px, 2.6vw, 32px); }
+.work-card__en {
+  font-family: var(--font-en);
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  color: var(--c-sky);
+  margin: 0 0 4px;
+}
+.work-card__title {
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 900;
+  margin: 0 0 12px;
+}
+.work-card__text {
+  font-size: 14px;
+  line-height: 2;
+  color: var(--c-muted);
+  margin: 0;
+}
+
+/* ---------- Recruit: Member (社員紹介) ---------- */
+.member__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.member-card {
+  background: var(--c-white);
+  border: 1px solid var(--c-line);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.member-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+.member-card__photo {
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+}
+.member-card__body { padding: 22px; }
+.member-card__meta {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--c-blue);
+  margin: 0 0 6px;
+}
+.member-card__name {
+  font-size: 18px;
+  font-weight: 900;
+  margin: 0 0 12px;
+}
+.member-card__copy {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--c-muted);
+  margin: 0;
+}
+.rec-member__note {
+  font-size: 12px;
+  color: var(--c-muted);
+  margin: clamp(28px, 4vw, 40px) 0 0;
+}
+
 /* ---------- Recruit page responsive ---------- */
 @media (max-width: 960px) {
+  .rec-about__list { grid-template-columns: 1fr; }
+  .numbers__grid { grid-template-columns: repeat(2, 1fr); }
+  .work__grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .member__grid { grid-template-columns: repeat(2, 1fr); }
+  .paybar__val { font-size: 11px; }
   .rec-message__inner { grid-template-columns: 1fr; gap: 56px; }
   .rec-message__media { max-width: 420px; margin: 0 auto; }
   .reasons__grid { grid-template-columns: 1fr; }
@@ -1930,6 +2242,13 @@ button { font: inherit; cursor: pointer; border: 0; background: transparent; col
 @media (max-width: 720px) {
   .breadcrumb { padding-top: 80px; }
   .page-hero { min-height: 60vh; }
+  .numbers__grid { grid-template-columns: 1fr; }
+  .member__grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+  .member-card__copy { min-height: 0; }
+  .donuts { grid-template-columns: 1fr; gap: 40px; }
+  .paybar { height: 200px; gap: 4px; }
+  .paybar__val { font-size: 9px; }
+  .paybar__grade { font-size: 13px; }
   .req-row { grid-template-columns: 1fr; gap: 6px; }
   .flow-list { grid-template-columns: 1fr; }
   .rec-message__badge { width: 100px; height: 100px; right: 8px; bottom: -16px; }
