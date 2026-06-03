@@ -217,4 +217,30 @@
 
     startAutoplay();
   }
+
+  /* ---------- Number tiles (expandable) ---------- */
+  document.querySelectorAll('.num-tile').forEach((tile) => {
+    tile.addEventListener('click', () => {
+      const open = tile.classList.toggle('is-open');
+      tile.setAttribute('aria-expanded', String(open));
+    });
+  });
+
+  /* ---------- Member Interview carousel ---------- */
+  const ivViewport = document.querySelector('.interview__viewport');
+  const ivTrack = document.getElementById('interviewTrack');
+  if (ivViewport && ivTrack) {
+    const stepWidth = () => {
+      const card = ivTrack.querySelector('.iv-card');
+      if (!card) return ivViewport.clientWidth;
+      const gap = parseFloat(getComputedStyle(ivTrack).columnGap || '24') || 24;
+      return card.getBoundingClientRect().width + gap;
+    };
+    document.querySelectorAll('.iv-arrow').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const dir = btn.getAttribute('data-dir') === 'prev' ? -1 : 1;
+        ivViewport.scrollBy({ left: dir * stepWidth(), behavior: 'smooth' });
+      });
+    });
+  }
 })();
